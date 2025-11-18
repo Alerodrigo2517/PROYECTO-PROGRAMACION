@@ -1,0 +1,8 @@
+streamlit
+pandas
+pyarrow
+reportlab
+mysqlconnectorpython
+pythondotenv
+pillow
+duckdb

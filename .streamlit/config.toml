@@ -1,0 +1,13 @@
+[theme]
+base = "dark"
+primaryColor = "#FF6F61"               # Coral vibrante para botones y acentos
+backgroundColor = "#1E1B29"            # Fondo principal: lavanda oscuro muy elegante
+secondaryBackgroundColor = "#2C2540"   # Contenedores: gris-lavanda oscuro
+textColor = "#F0E6FF"                  # Texto: lavanda claro, legible sobre fondo oscuro
+font = "sans serif"
+codeBackgroundColor = "#3A3255"        # Dataframes/código: morado profundo
+
+[theme.sidebar]
+backgroundColor = "#3B2F5A"            # Morado profundo, más suave que antes, elegante y moderno
+secondaryBackgroundColor = "#5E4B8B"   # Contenedores dentro del sidebar: lavanda oscuro con contraste
+textColor = "#F0E6FF"                   # Texto lavanda claro para legibilidad
