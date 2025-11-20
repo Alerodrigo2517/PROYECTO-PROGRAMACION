@@ -20,8 +20,7 @@ def obtener_proveedores():
     resultado=cursor.fetchall()
     cursor.close()
     var_conexion.close()
-    return True if resultado else False
-
+    return  resultado
 
 
 def ingresar_proveedor(nombre,rubro,telefono):

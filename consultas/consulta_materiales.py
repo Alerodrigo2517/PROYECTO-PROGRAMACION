@@ -12,6 +12,8 @@ def obtener_materiales():
             m.id_material AS ID,
             m.descripcion AS Descripcion,
             m.precio_unitario AS Precio,
+            p.id_proveedor_materiales as ID_PROVEEDOR,
+            p.rubro as rubro,
             p.nombre AS Proveedor
         FROM
             materiales m
@@ -22,15 +24,15 @@ def obtener_materiales():
     resultado = cursor.fetchall()
     return resultado
 
-def ingresar_materiales(id_material,descripcion,precio_unitario,proveedor):
+def ingresar_materiales(descripcion,precio_unitario,proveedor):
     cursor, var_conexion= conexion_general()
     script_consulta="""
-        INSERT INTO  materiales(id_material,descripcion,precio_unitario,fk_proveedor_materiales)
+        INSERT INTO  materiales(descripcion,precio_unitario,fk_proveedor_materiales)
         
         VALUES
-            (%s,%s,%s,%s)
+            (%s,%s,%s)
     """
-    cursor.execute(script_consulta(id_material,descripcion,precio_unitario,proveedor))
+    cursor.execute(script_consulta,(descripcion,precio_unitario,int(proveedor)))
     var_conexion.commit()
     cursor.close()
     var_conexion.close()
@@ -54,7 +56,7 @@ def actualizar_material(id_material,descripcion,precio_unitario,proveedor):
 def  eliminar_materiales(id_materiales):
     cursor,var_conexion=conexion_general()
     script_eliminacion="""
-    DELETE FROM  materiales where id_materiales= %s
+    DELETE FROM  materiales where id_material= %s
     """
     cursor.execute(script_eliminacion(id_materiales))
     var_conexion.commit()

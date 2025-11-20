@@ -25,6 +25,24 @@ def obtener_datos ():
     resultado = cursor.fetchall()
     return resultado
 
+def obtener_cuilt(cuilt):
+    cursor, var_conexion = conexion_general()
+    script_consulta = """
+        SELECT
+            cuilt_cliente AS CUILT,
+            nombre AS NOMBRE,
+            apellido AS APELLIDO,
+            direccion AS DOMICILIO,
+            ciudad AS CIUDAD,
+            telefono AS TELEFONO
+        FROM datos_clientes
+        WHERE cuilt_cliente = %s;
+    """
+    cursor.execute(script_consulta, (cuilt,))
+    resultado = cursor.fetchone()
+    cursor.close()
+    var_conexion.close()
+    return resultado
 def ingresar_datos (dc_cuilt,dc_nombre,dc_apellido,dc_direccion,dc_ciudad,dc_telefono):
     
     cursor, var_conexion= conexion_general()
